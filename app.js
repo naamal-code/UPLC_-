@@ -78,7 +78,7 @@ function computeAndRender() {
   const result = m.slope * rt + m.start;
   els.resultValue.textContent = formatNumber(result);
   const resultB = (m.slope * rt + m.start) / 0.8;
-  els.resultValue.textContent = formatNumber(resultB);
+  els.resultB.textContent = formatNumber(resultB);
 }
 
 els.toInput.addEventListener("click", () => {
@@ -150,5 +150,6 @@ if ("serviceWorker" in navigator) {
 } else {
   els.swStatus.textContent = "オフライン対応: 非対応ブラウザ";
 }
+
 
 
