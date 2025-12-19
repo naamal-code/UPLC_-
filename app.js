@@ -15,6 +15,7 @@ const els = {
   clear: document.getElementById("clear"),
   rtInput: document.getElementById("rtInput"),
   resultValue: document.getElementById("resultValue"),
+  resultB: document.getElementById("resultB"),
   formulaHelp: document.getElementById("formulaHelp"),
   offlineBadge: document.getElementById("offlineBadge"),
   swStatus: document.getElementById("swStatus"),
@@ -70,11 +71,14 @@ function computeAndRender() {
 
   if (rt === null) {
     els.resultValue.textContent = "—";
+    els.resultB.textContent = "—";
     return;
   }
 
   const result = m.slope * rt + m.start;
   els.resultValue.textContent = formatNumber(result);
+  const resultB = (m.slope * rt + m.start) / 0.8;
+  els.resultValue.textContent = formatNumber(resultB);
 }
 
 els.toInput.addEventListener("click", () => {
@@ -146,4 +150,5 @@ if ("serviceWorker" in navigator) {
 } else {
   els.swStatus.textContent = "オフライン対応: 非対応ブラウザ";
 }
+
 
